@@ -33,14 +33,14 @@ extern double dnorm(double x,double mean,double sd,int log_p);
 
 */
 
-void opllgrself( Sint *xnobs, 
-		 Sint *xncat,  
-		 Sint *xnvarx,  
-		 Sint *xnvarv,  
-		 Sint *xnvarv1,  
-		 Sint *xnself,
+void opllgrself( int *xnobs, 
+		 int *xncat,  
+		 int *xnvarx,  
+		 int *xnvarv,  
+		 int *xnvarv1,  
+		 int *xnself,
 		 double *xse, 
-		 Sint   *y, 
+		 int   *y, 
 		 double *xb, 
 		 double *taus, 
 		 double *V,
@@ -52,13 +52,13 @@ void opllgrself( Sint *xnobs,
 		 double *dLdGamma1  /* 1 x nvar.v */
 		 ) ;
 
-void opllgrvign( Sint *xnobs, 
-		 Sint *xncat,  
-		 //Sint *xnvarx,  
-		 Sint *xnvarv,  
-		 Sint *xnvarv1,  
+void opllgrvign( int *xnobs, 
+		 int *xncat,  
+		 //int *xnvarx,  
+		 int *xnvarv,  
+		 int *xnvarv1,  
 		 double *xse, 
-		 Sint   *y, 
+		 int   *y, 
 		 double *xb, 
 		 double *taus, 
 		 double *V,
@@ -70,27 +70,27 @@ void opllgrvign( Sint *xnobs,
 		 double *dLdGamma1  /* 1 x nvar.v */
 		 ) ;
 
-void opll( Sint *xnobs, Sint *xncat,  
+void opll( int *xnobs, int *xncat,  
 	   double *xse, double *xpenalty, 
-	   Sint *y, 
+	   int *y, 
 	   double *xb, double *taus, 
 	   double *llik);
 
-void opllgh( Sint *xnobs, Sint *xngh, Sint *xnself, Sint *xncat,  
+void opllgh( int *xnobs, int *xngh, int *xnself, int *xncat,  
 	     double *xs2su, double *xse, double *xpenalty, 
 	     double *ghx, double *ghw, 
-	     Sint *y, 
+	     int *y, 
 	     double *xb, double *taus, 
 	     double *llik);
 
-void opllgh( Sint *xnobs, Sint *xngh, Sint *xnself, Sint *xncat,  
+void opllgh( int *xnobs, int *xngh, int *xnself, int *xncat,  
 	     double *xs2su, double *xse, double *xpenalty, 
 	     double *ghx, double *ghw, 
-	     Sint *y, 
+	     int *y, 
 	     double *xb, double *taus, 
 	     double *llik) {
 
-  Sint nobs=*xnobs, ngh=*xngh, nself=*xnself, ncat=*xncat;
+  int nobs=*xnobs, ngh=*xngh, nself=*xnself, ncat=*xncat;
   double s2su = *xs2su, se = *xse, penalty = *xpenalty;
 
   int i,j,m;
@@ -217,13 +217,13 @@ void opllgh( Sint *xnobs, Sint *xngh, Sint *xnself, Sint *xncat,
 
 
 
-void opll( Sint *xnobs, Sint *xncat,  
+void opll( int *xnobs, int *xncat,  
 	     double *xse, double *xpenalty, 
-	     Sint *y, 
+	     int *y, 
 	     double *xb, double *taus, 
 	     double *llik) {
 
-  Sint nobs=*xnobs, ncat=*xncat;
+  int nobs=*xnobs, ncat=*xncat;
   double se = *xse, penalty = *xpenalty;
 
   int i;
@@ -265,14 +265,14 @@ void opll( Sint *xnobs, Sint *xncat,
   }
 }
 
-void opllgrself( Sint *xnobs, 
-		 Sint *xncat,  
-		 Sint *xnvarx,  
-		 Sint *xnvarv,  
-		 Sint *xnvarv1,  
-		 Sint *xnself,
+void opllgrself( int *xnobs, 
+		 int *xncat,  
+		 int *xnvarx,  
+		 int *xnvarv,  
+		 int *xnvarv1,  
+		 int *xnself,
 		 double *xse, 
-		 Sint   *y, 
+		 int   *y, 
 		 double *xb, 
 		 double *taus, 
 		 double *V,
@@ -285,7 +285,7 @@ void opllgrself( Sint *xnobs,
 		 
 		 ) {
 
-  Sint nobs=*xnobs, ncat=*xncat, nvarx = *xnvarx, nvarv = *xnvarv, nvarv1 = *xnvarv1,
+  int nobs=*xnobs, ncat=*xncat, nvarx = *xnvarx, nvarv = *xnvarv, nvarv1 = *xnvarv1,
        nself = *xnself;  
   double se = *xse;
 
@@ -431,13 +431,13 @@ void opllgrself( Sint *xnobs,
 
 }
 
-void opllgrvign( Sint *xnobs, 
-		 Sint *xncat,  
-		 //Sint *xnvarx,  
-		 Sint *xnvarv,  
-		 Sint *xnvarv1,  
+void opllgrvign( int *xnobs, 
+		 int *xncat,  
+		 //int *xnvarx,  
+		 int *xnvarv,  
+		 int *xnvarv1,  
 		 double *xse, 
-		 Sint   *y, 
+		 int   *y, 
 		 double *xb, 
 		 double *taus, 
 		 double *V,
@@ -450,7 +450,7 @@ void opllgrvign( Sint *xnobs,
 		 
 		 ) {
 
-  Sint nobs=*xnobs, ncat=*xncat, nvarv = *xnvarv, nvarv1 = *xnvarv1;  
+  int nobs=*xnobs, ncat=*xncat, nvarv = *xnvarv, nvarv1 = *xnvarv1;  
   double se = *xse;
 
   int i,choice,k,m,idx2,idxK, idx1,idxM; 

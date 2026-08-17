@@ -16,9 +16,9 @@
 #include <math.h>
 #include <R.h>
 #include "Rmath.h"
-void vecrowcumsum( double *taus, Sint *xnself, Sint *xncat, Sint *xnobs) ;
+void vecrowcumsum( double *taus, int *xnself, int *xncat, int *xnobs) ;
 
-void vecrowcumsum( double *taus, Sint *xnself, Sint *xncat, Sint *xnobs) {
+void vecrowcumsum( double *taus, int *xnself, int *xncat, int *xnobs) {
 
   int i,j,k,offset;
   int ncat = *xncat, nself = *xnself, nobs = *xnobs; 
@@ -47,9 +47,9 @@ void vecrowcumsum( double *taus, Sint *xnself, Sint *xncat, Sint *xnobs) {
   }
 }
 
-void diff_nonneg( double *y, Sint *xn, Sint *xk) ;
+void diff_nonneg( double *y, int *xn, int *xk) ;
 
-void diff_nonneg( double *y, Sint *xn, Sint *xk) {
+void diff_nonneg( double *y, int *xn, int *xk) {
   int i;
   int n = *xn, k = *xk;
 
@@ -58,9 +58,9 @@ void diff_nonneg( double *y, Sint *xn, Sint *xk) {
   }
 }
 
-void diff_sign( double *y, Sint *xn, Sint *xk) ;
+void diff_sign( double *y, int *xn, int *xk) ;
 
-void diff_sign( double *y, Sint *xn, Sint *xk) {
+void diff_sign( double *y, int *xn, int *xk) {
   int i, tmp;
   int n = *xn, k = *xk;
 
@@ -71,9 +71,9 @@ void diff_sign( double *y, Sint *xn, Sint *xk) {
   }
 }
 
-void Tcount( double *pos, Sint *xk, Sint *xn, Sint *xrA, Sint *xrB, double *out) ;
+void Tcount( double *pos, int *xk, int *xn, int *xrA, int *xrB, double *out) ;
 
-void Tcount( double *pos, Sint *xk, Sint *xn, Sint *xrA, Sint *xrB, double *out) {
+void Tcount( double *pos, int *xk, int *xn, int *xrA, int *xrB, double *out) {
   int r,i,j;
   int offset = 0;
   int n = *xn, k = *xk, rA = *xrA, rB = *xrB ;
